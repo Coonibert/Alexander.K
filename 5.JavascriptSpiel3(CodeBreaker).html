@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<title>CodeBreaker</title>
+<meta name="generator" content="Geany 1.34.1" />
+</head>
+
+<body>
+	
+	<h1>Der Panzerknacker-Simulator</h1>
+	<p>Du willst nicht ewig auf den Jackpot warten?<br>
+	Übe jetzt mit dem Panzerknacker-Simulator und hol die den Wohlstand direkt aus der nächsten Bank.<br>
+	Beschaffe dir deine ersten eigenen Millionen und kündige das Jamba-Sparabo.<br>
+	Viel Erfolg!</p>
+	
+	<div onClick="CodeBreaker();">
+	<p style="font-size:42pt;color: black; text-shadow: green 0.05em 0.05em 0.1em;">CodeBreaker...&#128272;</p>
+	</div>
+	
+	
+	
+<script>
+	
+	// Notietzen: 
+	//com: denkt sich code, 4 stellen von 1-9
+	//tipp abgeben
+	//com: wie viele richtig. wie viele flasch. wie viele dabei, aber an der falschen stelle
+	//flasch = erneut raten
+	//alles richtig. rätsel vorbei
+	// Extra schwer :10 versuche: 
+	
+	function CodeBreaker(){
+	
+	
+	
+	//com denkt sich Code aus
+	var zahl1 = Math.round(Math.random() * 9 + 0.5);
+	var zahl2 = Math.round(Math.random() * 9 + 0.5);
+	var zahl3 = Math.round(Math.random() * 9 + 0.5);
+	var zahl4 = Math.round(Math.random() * 9 + 0.5);
+	var anzahlDerVersuche = 0;
+do{
+	
+	
+	anzahlDerVersuche = anzahlDerVersuche +1;
+	//Zahl raten
+	var meinVersuch = prompt("Gib eine Zahl ein", "Zahl von 1111 bis 9999");
+	var tipp1 = meinVersuch.charAt(0);
+	var tipp2 = meinVersuch.charAt(1);
+	var tipp3 = meinVersuch.charAt(2);
+	var tipp4 = meinVersuch.charAt(3);
+	
+	//com bewertet richtige Zahl und Position
+	var richtigeStelle = 0;
+	var richtigeZahl = 0;
+	
+	
+		if(tipp1 == zahl1){richtigeStelle++;}
+			else if ( tipp1 == zahl2 || tipp1 == zahl3 || tipp1 == zahl4){richtigeZahl++;}
+
+		if(tipp2 == zahl2){richtigeStelle++;}
+			else if ( tipp2 == zahl1 || tipp2 == zahl3 || tipp2 == zahl4){richtigeZahl++;}
+
+		if(tipp3 == zahl3){richtigeStelle++;}
+			else if ( tipp3 == zahl1 || tipp3 == zahl2 || tipp3 == zahl4){richtigeZahl++;}
+
+		if(tipp4 == zahl4){richtigeStelle++;}
+			else if ( tipp4 == zahl1 || tipp4 == zahl2 || tipp4 == zahl3){richtigeZahl++;}
+
+	alert( anzahlDerVersuche + ".Runde: " +richtigeStelle + " Zahlen an der richtigen Stelle, " + richtigeZahl + " Zahlen kommen im Code vor" );
+	
+	var nichtAufgeben = meinVersuch >= 1111 && meinVersuch <=9999;
+	
+}while( richtigeStelle < 4 && nichtAufgeben && anzahlDerVersuche < 20)
+
+
+if( richtigeStelle == 4 && anzahlDerVersuche < 20) { alert("Du hast gewonnen. Super!");}
+
+if( anzahlDerVersuche >= 20 ) {
+	{alert("Du konntest den Code in der vorgegebenen Rundenzahl nicht lösen. \n Du hast verloren!");}
+	
+if( nichtAufgeben == false )
+	alert("Du hast aufgegeben. Die korrekte Lösung war " + zahl1 +" "+ zahl2 +" "+ zahl3 +" "+ zahl4);}
+	
+alert("Du hast " + anzahlDerVersuche + " mal geraten");
+}
+</script>
+
+</body>
+
+</html>

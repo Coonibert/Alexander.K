@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8" />
+<title>Bubblesort</title>
+</head>
+
+<body>
+	
+	<p id="notiz">Hallo Welt</p>
+	
+		
+	
+<script>
+
+
+document.getElementById("notiz").innerHTML = "Die Ergebnisse von Bubblesort<br>";
+
+
+var mannschaft = 
+		["Xaver", "Hans", "Darth Berti", "Helge", "Bärbel", "Andrea"];
+
+var gegner = 
+		["Hotte", "Alois", "Alva", "Petra", "Chen Lu", "Peter"];
+
+sortiere(mannschaft);
+sortiere(gegner);
+
+function sortiere(liste){
+
+
+	
+	for(var i=0; i<liste.length - 1; i++){
+		
+		if( liste[i] > liste[i+1] ){
+		
+		kurzMerken = liste[i];
+		liste[i] = liste[i+1];
+		liste[i+1] = kurzMerken;
+		
+		
+		notiz.innerHTML = notiz.innerHTML + "<br>" + liste;
+		
+		setTimeout(sortiere,500,liste);
+		return;
+		}
+	}
+
+
+
+
+}
+</script>
+
+
+
+
+</body>
+
+</html>
